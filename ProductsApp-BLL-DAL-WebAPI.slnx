@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BLL/BLL.csproj" />
+    <Project Path="src/DAL/DAL.csproj" />
+  </Folder>
+  <Folder Name="/src/WebApi/">
+    <Project Path="src/WebApi/WebAPI.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BLL.FunctionalTests/BLL.FunctionalTests.csproj" />
+  </Folder>
+</Solution>
