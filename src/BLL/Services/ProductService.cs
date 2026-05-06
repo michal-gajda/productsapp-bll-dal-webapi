@@ -14,11 +14,7 @@ internal sealed class ProductService : IProductService
     private readonly IValidator<UpdateProduct> _updateValidator;
     private readonly ILogger<ProductService> _logger;
 
-    public ProductService(
-        IProductRepository repository,
-        IValidator<CreateProduct> createValidator,
-        IValidator<UpdateProduct> updateValidator,
-        ILogger<ProductService> logger)
+    public ProductService(IProductRepository repository, IValidator<CreateProduct> createValidator, IValidator<UpdateProduct> updateValidator, ILogger<ProductService> logger)
     {
         _repository = repository;
         _createValidator = createValidator;

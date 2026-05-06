@@ -22,30 +22,36 @@ Przykładowa aplikacja demonstrująca warstwową architekturę w ASP.NET Core 8.
 
 ## Struktura projektu
 
-```
-ProductsApp.sln
-├── DAL/                          # Data Access Layer
-│   ├── Entities/Product.cs       # Model encji
-│   ├── Data/AppDbContext.cs      # DbContext + seed data
-│   ├── Repositories/
-│   │   ├── IRepository.cs        # Generyczny interfejs repozytorium
-│   │   ├── Repository.cs         # Generyczna implementacja
-│   │   ├── IProductRepository.cs # Specyficzny interfejs
-│   │   └── ProductRepository.cs  # Specyficzna implementacja
-│   └── DAL.csproj
-├── BLL/                          # Business Logic Layer
-│   ├── DTOs/ProductDtos.cs       # DTO: ProductDto, CreateProductDto, UpdateProductDto
-│   ├── Mapping/ProductMapper.cs  # Metody rozszerzające Entity ↔ DTO
-│   ├── Services/
-│   │   ├── IProductService.cs    # Interfejs serwisu
-│   │   └── ProductService.cs     # Implementacja z logowaniem
-│   └── BLL.csproj
-└── WebAPI/                       # UI / Warstwa prezentacji
-    ├── Controllers/ProductsController.cs
-    ├── Middleware/ExceptionHandlingMiddleware.cs
-    ├── Program.cs                # Konfiguracja DI + pipeline
-    ├── appsettings.json
-    └── WebAPI.csproj
+```text
+ProductsApp-BLL-DAL-WebAPI.slnx
+├── src/
+│   ├── DAL/                          # Data Access Layer
+│   │   ├── Entities/Product.cs       # Model encji
+│   │   ├── Data/AppDbContext.cs      # DbContext + seed data
+│   │   ├── Repositories/
+│   │   │   ├── IRepository.cs        # Generyczny interfejs repozytorium
+│   │   │   ├── Repository.cs         # Generyczna implementacja
+│   │   │   ├── IProductRepository.cs # Specyficzny interfejs
+│   │   │   └── ProductRepository.cs  # Specyficzna implementacja
+│   │   └── DAL.csproj
+│   ├── BLL/                          # Business Logic Layer
+│   │   ├── Models/                   # DTO: CreateProduct, Product, UpdateProduct
+│   │   ├── Mapping/                  # Mapowanie Entity ↔ DTO
+│   │   ├── Services/
+│   │   │   ├── IProductService.cs    # Interfejs serwisu
+│   │   │   └── ProductService.cs     # Implementacja z logowaniem
+│   │   ├── Validation/               # Walidatory i modele błędów
+│   │   └── BLL.csproj
+│   └── WebAPI/                       # UI / Warstwa prezentacji
+│       ├── Controllers/ProductsController.cs
+│       ├── Middleware/ExceptionHandlingMiddleware.cs
+│       ├── Models/                   # Modele żądań i odpowiedzi API
+│       ├── Program.cs                # Konfiguracja DI + pipeline
+│       ├── appsettings.json
+│       └── WebAPI.csproj
+└── tests/
+    └── BLL.FunctionalTests/          # Testy funkcjonalne BLL
+        └── BLL.FunctionalTests.csproj
 ```
 
 ## Endpointy API
