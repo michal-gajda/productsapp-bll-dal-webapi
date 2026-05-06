@@ -3,7 +3,6 @@ namespace BLL.FunctionalTests;
 using BLL;
 using DAL;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 public abstract class TestBase
 {
