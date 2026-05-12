@@ -5,9 +5,9 @@ using BLL.Models;
 public sealed class CreateProductBuilder
 {
     private string name = "Test Product";
-    private string? description = default;
-    private decimal price;
-    private int stockQuantity;
+    private string? description = "This is a test product.";
+    private decimal price = 9.99m;
+    private int stockQuantity = 100;
     private string category = "Default Category";
 
     private CreateProductBuilder() { }
